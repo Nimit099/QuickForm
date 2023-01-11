@@ -1,0 +1,215 @@
+.logo{
+    width: 14%;
+    margin-left: 85%;
+    position: absolute;
+    top: 0;
+    margin-top: 10px
+}
+h1{
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+    font-style: arial;
+}
+input{
+    position: relative;
+    right: 18%;
+    top: 11%;
+    box-sizing: border-box;
+    margin: 35px;
+    width: 270px;
+    height: 35px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    
+}
+.button1{
+    position: relative;
+    cursor: pointer;
+    width: 150px;
+    height: 35px;
+    left: 103%;
+    top: 49%;
+    background: #6699CC;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 5px;
+}
+.button2{
+    position: relative;
+    cursor: pointer;
+    width: 150px;
+    height: 35px;
+    left: 45%;
+    top: 49%;
+    background: #6699CC;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 5px;
+}
+.bt_text{
+    margin: 8px 28px;
+    color: white;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+}
+.bt_text2{
+    margin-left: 35px;
+}
+.bt_logo{
+    Width:14px;
+    margin-bottom: 3px;
+    margin-right: 3px;
+}
+.bt_logo1{
+    width: 12px;
+}
+input::placeholder{
+    font-size: 15px;
+    line-height: 17px;
+    padding-left: 23%;
+}
+.search{
+    position: relative;
+    right: 69%;
+    top: 10%;
+}
+.table{
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    width: 96%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 382px;
+    margin-left: 22px;;
+}
+.table_head{
+    margin: 0;
+    height: 40px;
+    background-color: #6699CC;
+    color: white;
+    font-family: 'Arial';
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+}
+.table_row{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 8px;
+    /* line-height: 16px; */
+}
+.slds-col{
+    text-align: center;
+    margin: 10px auto;
+}
+.index{
+    width: 3%;
+}
+.title{
+    width: 18%;
+    padding-right: 6%;
+}
+.submission{
+    width: 6%;
+}
+.status{
+    width: 5%;
+    padding-right: 2%;
+}
+.preview{
+    width: 6%;
+}
+.action{
+    width: 9%;
+}
+.dashboard{
+    padding:0;
+}
+.sub{
+    padding-right: 50%;
+}
+.pre{
+    cursor: pointer;
+    padding-right: 70%;
+}
+.bt_img{
+    max-width: 25% !important;
+    position: relative;
+    right: 33%;
+    cursor: pointer;
+
+}
+.bt_dash{
+    margin-left: 1.6px;
+    margin-top: 4.4px;
+    cursor: pointer;
+}
+.bg_dash{
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    left: 8px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.table_row:nth-child(odd) {
+    background: #F2F2F2;
+    padding-top: 8px;
+}
+.table_row:nth-child(even) {
+    background-color: #FFFFFF;
+    height: 52px;
+}
+.form_counter{
+    width: 166px;
+    height: 35px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin: 10px 84.5%;
+}
+.form_counter p{
+    text-align: center;
+    margin: 7px auto;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+    color: #6699CC;
+}
+.slds-checkbox_toggle .slds-checkbox_faux, .slds-checkbox_toggle .slds-checkbox--faux, .slds-checkbox--toggle .slds-checkbox_faux, .slds-checkbox--toggle .slds-checkbox--faux {
+    position: relative !important;
+    right: 4px !important;
+    padding-right: 120% !important;
+}
+@media screen and (min-width: 1370px) and (max-width: 1440px) {
+    input {
+      right: 21%;
+    }
+    .button2{
+        left: 52%;
+    }
+    .button1{
+        left: 113%;
+    }
+    .table{
+        height: 401px;
+    }
+    .form_counter{
+        margin: 10px 85.5%;
+    }
+  }
