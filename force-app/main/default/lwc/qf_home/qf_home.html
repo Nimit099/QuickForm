@@ -1,146 +1,69 @@
 <template>
-    
-    <lightning-card class="">
-        <div class="body">
-            <div class="">
-                <h1>Welcome MV Clouds</h1>
-                <img src={logo} alt="" class="logo">
-            </div>
-            <div class="second_row slds-grid slds-gutters">
-                <div class="input slds-col">
-                    <input type="text" placeholder="Search Form">
-                    <img src={search} alt="" class="search">
+    <lightning-card>
+        <div class="fullbody">
+            <lightning-card>
+                <div class="header slds-grid slds-gutters">
+                    <div class="slds-col"> <img src={logo} alt="" class="logo"></div>
+                    <div class="input">
+                        <div><lightning-input placeholder="Search" class="input_field" value={searchkey} onchange={searchvalue}></lightning-input></div>
+                        <div class="search_icon"><img src={search} alt=""></div>
+                        <div class="form_bt"> <img src={plus} class="plus"><p>New Form</p></div>
+                    </div>
                 </div>
-                <div class="slds-col">
-                    <div class=" button1"><p class="bt_text"> <img src={plus} alt="" class="bt_logo"> New Form</p></div>
+            </lightning-card>
+            <lightning-card>
+                <div class="body">     <!--  whole second section --> 
+                    <div class="textbox"> <!--  flexbox --> 
+                        <div class="heading"><p>Forms</p></div>
+                        <div class="description"><p>{countdata}</p></div>
+                    </div>
+                    <div>
+                        <div class="table">   <!--  table   --> 
+                            <div class="table_head slds-grid slds-gutters">
+                                <div class="slds-col index"><p class="head">INDEX</p></div>
+                                <div class="slds-col title"><p class="head">TITLE</p></div>
+                                <div class="slds-col submission"><p class="head">SUBMISSION</p></div>
+                                <div class="slds-col preview"><p class="head">PREVIEW</p></div>
+                                <div class="slds-col dashboard"><p class="head">FORM DASHBOARD</p></div>
+                                <div class="slds-col status"><p class="head">STATUS</p></div>
+                                <div class="slds-col action"><p class="head">ACTION</p></div>
+                            </div>
+                            <hr>
+                            <div class="table_rows">
+                                <template for:each={formlist} for:item="form">
+                                    <div key={form.Id}>
+                                        <div class="table_row slds-grid slds-gutters">
+                                            <div class="slds-col index_div"><div>{index}</div></div>
+                                            <div class="slds-col title_div"><p>{form.Name}</p></div>
+                                            <div class="slds-col submission_div">{form.Total_Submissions__c}</div>
+                                            <div class="slds-col preview_div"><img src={preview} alt="" class="preview_img"></div>
+                                            <div class="slds-col dashboard_div"><div class="three_div"><img src={dashboard} alt="" class="dashboard_img"></div></div>
+                                            <template if:true={form.Status__c}>
+                                            <div class="slds-col status_div">
+                                                <div class="statuss" onclick={changestatus} data-id={form.Id}>Active</div>
+                                            </div>
+                                            </template>
+                                            <template if:false={form.Status__c}>
+                                                <div class="slds-col status_div">
+                                                    <div class="statuss red" onclick={changestatus} data-id={form.Id}>InActive</div>
+                                                </div>
+                                                </template>
+                                            <div class="slds-col action_div">
+                                                <div class="action_buttons">
+                                                    <div class="three_div"><img src={pen} alt="" class="pen"></div>
+                                                    <div class="three_div"><img src={download} alt="" class="download"></div>
+                                                    <div class="three_div" onclick={deleteforms} data-id={form.Id}><img src={bin} alt="" class="bin" onclick={deleteforms} data-id={form.Id}></div>
+                                                </div>
+                                            </div>           
+                                        </div>
+                                        <div class="line"></div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="slds-col">
-                    <div class=" button2"> <p class="bt_text bt_text2"> <img src={menu} alt="" class="bt_logo bt_logo1"> All Form</p></div>
-                </div>
-            </div>
-
-            <div class="third_row">
-                <div class="table">
-                    <div class="table_head slds-grid slds-gutters">
-                        <div class="slds-col index">INDEX</div>
-                        <div class="slds-col title">TITLE</div>
-                        <div class="slds-col status">STATUS</div>
-                        <div class="slds-col submission">SUBMISSION</div>
-                        <div class="slds-col preview">PREVIEW</div>
-                        <div class="slds-col action">ACTION</div>
-                        <div class="slds-col dashboard">DASHBOARD</div>
-                    </div>
-                    <div class="table_row slds-grid slds-gutters">
-                        <div class="slds-col index"><p>1</p></div>
-                        
-                        <div class="slds-col title"><p>Contact and account form</p></div>
-                        <div class="slds-col status"><lightning-input type="toggle" class="toggle"></lightning-input></div>
-                        <div class="slds-col submission"><p class="sub">1</p></div>
-                        <div class="slds-col preview"><img src={search} alt="" class="pre" onclick={k}></div>
-                        <div class="slds-col action">
-                            <div class="slds-grid">
-                            <img src={pen} alt="" class="slds-col bt_img">
-                            <img src={download} alt="" class="slds-col bt_img">
-                            <img src={bin} alt="" class="slds-col bt_img">
-                            </div>
-                        </div>
-                        <div class="slds-col dashboard"><div class="bg_dash"><img src={dashboard} alt="" class="bt_dash"></div></div>
-                    </div>
-                    <div class="table_row slds-grid slds-gutters">
-                        <div class="slds-col index"><p>2</p></div>
-                        <div class="slds-col title"><p>Contact and account form</p></div>
-                        <div class="slds-col status"><lightning-input type="toggle"></lightning-input></div>
-                        <div class="slds-col submission"><p class="sub">1</p></div>
-                        <div class="slds-col preview"><img src={search} alt="" class="pre"></div>
-                        <div class="slds-col action">
-                            <div class="slds-grid">
-                                <img src={pen} alt="" class="slds-col bt_img">
-                                <img src={download} alt="" class="slds-col bt_img">
-                                <img src={bin} alt="" class="slds-col bt_img">
-                            </div>
-                        </div>
-                        <div class="slds-col dashboard"><div class="bg_dash"><img src={dashboard} alt="" class="bt_dash"></div></div>
-                    </div>
-                    <div class="table_row slds-grid slds-gutters">
-                        <div class="slds-col index"><p>3</p></div>
-                        <div class="slds-col title"><p>Contact and account form</p></div>
-                        <div class="slds-col status"><lightning-input type="toggle"></lightning-input></div>
-                        <div class="slds-col submission"><p class="sub">1</p></div>
-                        <div class="slds-col preview"><img src={search} alt="" class="pre"></div>
-                        <div class="slds-col action">
-                            <div class="slds-grid">
-                                <img src={pen} alt="" class="slds-col bt_img">
-                                <img src={download} alt="" class="slds-col bt_img">
-                                <img src={bin} alt="" class="slds-col bt_img">
-                            </div>
-                        </div>
-                        <div class="slds-col dashboard"><div class="bg_dash"><img src={dashboard} alt="" class="bt_dash"></div></div>
-                    </div>
-                    <div class="table_row slds-grid slds-gutters">
-                        <div class="slds-col index"><p>4</p></div>
-                        <div class="slds-col title"><p>Contact and account form</p></div>
-                        <div class="slds-col status"><lightning-input type="toggle"></lightning-input></div>
-                        <div class="slds-col submission"><p class="sub">1</p></div>
-                        <div class="slds-col preview"><img src={search} alt="" class="pre"></div>
-                        <div class="slds-col action">
-                            <div class="slds-grid">
-                                <img src={pen} alt="" class="slds-col bt_img">
-                                <img src={download} alt="" class="slds-col bt_img">
-                                <img src={bin} alt="" class="slds-col bt_img">
-                            </div>
-                        </div>
-                        <div class="slds-col dashboard"><div class="bg_dash"><img src={dashboard} alt="" class="bt_dash"></div></div>
-                    </div>
-                    <div class="table_row slds-grid slds-gutters">
-                        <div class="slds-col index"><p>5</p></div>
-                        <div class="slds-col title"><p>Contact and account form</p></div>
-                        <div class="slds-col status"><lightning-input type="toggle"></lightning-input></div>
-                        <div class="slds-col submission"><p class="sub">1</p></div>
-                        <div class="slds-col preview"><img src={search} alt="" class="pre"></div>
-                        <div class="slds-col action">
-                            <div class="slds-grid">
-                                <img src={pen} alt="" class="slds-col bt_img">
-                                <img src={download} alt="" class="slds-col bt_img">
-                                <img src={bin} alt="" class="slds-col bt_img">
-                            </div>
-                        </div>
-                        <div class="slds-col dashboard"><div class="bg_dash"><img src={dashboard} alt="" class="bt_dash"></div></div>
-                    </div>
-                    <div class="table_row slds-grid slds-gutters">
-                        <div class="slds-col index"><p>6</p></div>
-                        <div class="slds-col title"><p>Contact and account form</p></div>
-                        <div class="slds-col status"><lightning-input type="toggle"></lightning-input></div>
-                        <div class="slds-col submission"><p class="sub">1</p></div>
-                        <div class="slds-col preview"><img src={search} alt="" class="pre"></div>
-                        <div class="slds-col action">
-                            <div class="slds-grid">
-                                <img src={pen} alt="" class="slds-col bt_img">
-                                <img src={download} alt="" class="slds-col bt_img">
-                                <img src={bin} alt="" class="slds-col bt_img">
-                            </div>
-                        </div>
-                        <div class="slds-col dashboard"><div class="bg_dash"><img src={dashboard} alt="" class="bt_dash"></div></div>
-                    </div>
-                    <div class="table_row slds-grid slds-gutters">
-                        <div class="slds-col index"><p>7</p></div>
-                        <div class="slds-col title"><p>Contact and account form</p></div>
-                        <div class="slds-col status"><lightning-input type="toggle"></lightning-input></div>
-                        <div class="slds-col submission"><p class="sub">1</p></div>
-                        <div class="slds-col preview"><img src={search} alt="" class="pre"></div>
-                        <div class="slds-col action">
-                            <div class="slds-grid">
-                                <img src={pen} alt="" class="slds-col bt_img">
-                                <img src={download} alt="" class="slds-col bt_img">
-                                <img src={bin} alt="" class="slds-col bt_img">
-                            </div>
-                        </div>
-                        <div class="slds-col dashboard"><div class="bg_dash"><img src={dashboard} alt="" class="bt_dash"></div></div>
-                    </div>
-                </div> 
-            </div>
-            <div class="form_counter">
-                <p>Total Form : 2</p>
-            </div>
+            </lightning-card>
         </div>
     </lightning-card>
 </template>
